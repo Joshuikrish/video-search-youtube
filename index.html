@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Video search</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main id="app">
+    <div class="container">
+      <div  id="form" >
+        <div class="form-group">
+          <label for="">Video Search</label>
+          <input v-model="input" v-on:keyup.enter="onEnter" type="text"
+            class="form-control " name="" id="" aria-describedby="helpId" placeholder="">
+          <small id="helpId" class="form-text text-muted">Search Video</small>
+        </div>
+      </div>
+      <div  v-if="showSuccessAlert" class="row my-5">
+       
+        
+
+        <div class="col-8">
+          <iframe width="100%" height="478" :src="'https://www.youtube.com/embed/'+videos[0].id.videoId" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <div class="col-4">
+
+        <div v-for="video in videos" :id="video.id" class="mb-2 text-left d-flex flex-md-row align-items-center">
+          <iframe width="50%" class="mx-2"   :src="'https://www.youtube.com/embed/'+video.id.videoId"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="card-body ">
+            <h6 class="card-title">{{video.snippet.title}}</h6>
+            <p class="card-text fw-bold">{{video.snippet.channelTitle}}</p>
+          </div>
+        </div>
+     
+      </div>
+
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+  <!-- Vue js 3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
