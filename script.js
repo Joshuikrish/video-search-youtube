@@ -21,7 +21,7 @@ createApp({
           part: 'snippet',
           q: this.input,
           type: 'video',
-          key: '[ Your API key ]',
+          key: '[ Your API key ]', // place your api key
           maxResults: 3
         }
       })
